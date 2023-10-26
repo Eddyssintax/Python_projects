@@ -1,0 +1,42 @@
+import time
+import random
+# list of sentences
+sentences = [
+    "The quick brown fox jumps over the lazy dog.",
+    "To be or not to be, that is the question.",
+    "I have a dream that one day this nation will rise up.",
+    "Four score and seven years ago our fathers brought forth on this continent.",
+    "It is a truth universally acknowledged that a single man in possession of a good fortune must be in want of a wife.",
+    "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness."
+]
+#function that helps to calculate word per minutes
+def calculate_wpm(time_taken, num_chars):
+    words = num_chars / 5
+    minutes = time_taken / 60
+    wpm = words / minutes
+    return wpm
+
+def main():
+    sentence = random.choice(sentences) # randomizer for our list of senteces
+    print("Type the following sentence:")
+    print(sentence)
+
+    user_input = input("Your input: ")
+
+#while loop for checking correctness of input with sentence
+    while user_input != sentence:
+       print("you made a mistake somewhere, Try again!")
+       start_time = time.time() # starting time for calculating
+       user_input = input("Your input: ")
+
+        
+
+    end_time = time.time() # end of time 
+    time_taken = end_time - start_time # calculating duration
+    typing_speed = calculate_wpm(time_taken, len(sentence))
+    
+    print(f"Duration: {time_taken:.2f} seconds")
+    print(f"Typing velocity: {typing_speed:.2f} WPM")
+        
+    
+main()
